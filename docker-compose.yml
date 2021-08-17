@@ -1,0 +1,26 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  api:
+    build: .
+    volumes:
+        - ./src:/usr/src/app/src
+        - ./nodemon.json:/usr/src/app/nodemon.json
+    ports:
+      - "7000:80"
+      - "9229:9229"
+    links:
+      - redis
+    depends_on:
+      - "redis"
+    environment:
+        PORT: 80
+        REDIS_HOST: redis://redis:6379 # is AWS
+        FRONTEND_HOSTNAME: 'http://localhost:3000' # https://cmdsoftware.io on AWS
+    # command: # if you want to debugger with breakpoints and whatnot
+    #   - node
+    #   - "--inspect-brk=0.0.0.0"
+    #   - "." 
+  redis:
+    image: redis:5
+    ports:
+      - "6379:6379"

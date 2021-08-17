@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node cluster.js",
+    "start-local": "PORT=7000 FRONTEND_HOSTNAME=http://localhost:3000 REDIS_HOST=redis://localhost:6379 node cluster.js",
+    "dev": "PORT=7000 FRONTEND_HOSTNAME=http://localhost:3000 nodemon cluster.js"
+  },
+  "author": "Damien Arrachequesne <damien.arrachequesne@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@socket.io/sticky": "^1.0.0",
+    "ioredis": "^4.22.0",
+    "nodemon": "^2.0.12",
+    "object-hash": "^2.2.0",
+    "socket.io": "^4.0.0",
+    "socket.io-redis": "^6.0.1",
+    "uuid": "^8.3.2"
+  }
+}

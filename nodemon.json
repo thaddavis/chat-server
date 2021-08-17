@@ -1,0 +1,11 @@
+{
+    "verbose": true,
+    "watch": [
+        "src/**/*.js",
+        "*.js"
+    ],
+    "execMap": {
+        "js": "if [ $(lsof -t -i:9229) ]; then kill -9 $(lsof -t -i:9229); fi; node --inspect=0.0.0.0:9229"
+    },
+    "delay": 0
+}
